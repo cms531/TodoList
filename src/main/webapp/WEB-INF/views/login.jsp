@@ -9,8 +9,7 @@
 	<form action="loginUser" method="post" autocomplete="off">
 		<fieldset>
 			<legend>로그인</legend>
-			<label>아이디 : <input type="text" name="userId" > </label>
-			<input type="button" value="중복확인"> <br>
+			<label>아이디 : <input type="text" name="userId" > </label><br>
 			<label>비밀번호 : <input type="text" name="userPw" > </label><br>
 			&nbsp;&nbsp;&nbsp; <input type="submit" value="로그인" >
 			${message}
