@@ -6,17 +6,18 @@
 </head>
 <body>
 	<h1>로그인</h1>
-	<form action="loginUser" method="post">
+	<form action="loginUser" method="post" autocomplete="off">
 		<fieldset>
 			<legend>로그인</legend>
 			<label>아이디 : <input type="text" name="userId" > </label>
 			<input type="button" value="중복확인"> <br>
 			<label>비밀번호 : <input type="text" name="userPw" > </label><br>
 			&nbsp;&nbsp;&nbsp; <input type="submit" value="로그인" >
+			${message}
 		</fieldset>
 	</form>
 	
-	<form action="moveCreateAccount" method="get">
+	<form action="moveCreate" method="get">
 	<input type="submit" value="회원가입" >
 	</form>
 	

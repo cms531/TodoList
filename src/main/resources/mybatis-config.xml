@@ -3,5 +3,12 @@
   PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
   "http://mybatis.org/dtd/mybatis-3-config.dtd">
 <configuration>
+	<typeAliases>
+		<typeAlias type="com.first.project.dto.UserVo" alias="User" />
+	</typeAliases>
+	
+	<mappers>
+		<mapper resource="Mapper/UserMapper.xml" />
+	</mappers>
 
 </configuration>
