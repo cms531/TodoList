@@ -5,10 +5,12 @@
 <configuration>
 	<typeAliases>
 		<typeAlias type="com.first.project.dto.UserVo" alias="User" />
+		<typeAlias type="com.first.project.dto.TodoVo" alias="Todo"/>
 	</typeAliases>
 	
 	<mappers>
 		<mapper resource="Mapper/UserMapper.xml" />
+		<mapper resource="Mapper/TodoMapper.xml" />
 	</mappers>
 
 </configuration>

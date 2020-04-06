@@ -8,20 +8,49 @@
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 <script type="text/javascript">
 	$(function(){
-		var str = "";
-		for(var i = 0 ; i < 10; i++){
-			str += "<tr>" ;
-			str += "<td>" + i + "</td>";
-			str += "<td>" + i + "</td>";
-			str += "</tr>" ;
-		}
-		$("#printList").append(str);
-		
-		$("#moveWrite").click(function(){
-			window.location.href="<c:url value='dir명/file명.do' />";
+		$.ajax({
+			url : "selectAllTodo"
+			,type : "get"
+			,success : function(result){
+				var str = "";
+				for(var i = 0 ; i < result.length; i++){
+					str += "<tr>";
+					str += "<td>" + result[i].title + "</td>";
+					str += "<td>" + result[i].tododate + "</td>";
+					if(result[i].userId == '${sessionScope.userId}'){
+						str += "<td><input type='button' class='deleteBtn' value='삭제' attr-delete='"+result[i].todo_seq+ "' ></td>";
+					}
+					str += "</tr>";
+				}
+				$("#printList").html(str);
+			}
 		})
 		
+		$("#moveWrite").click(function(){
+			window.open("moveWrite");
+		})
+		
+		$(document).on("click",".deleteBtn",function(){
+			var todo_seq = $(this).attr('attr-delete');
+			$.ajax({
+				url : "deleteTodo"
+				,type : "post"
+				,data : {
+					todo_seq : todo_seq
+				}
+				,success : function(result){
+					alert(result);
+				}
+				
+			})
+		})
+
+		
 	})
+	
+	
+	
+	
 
 </script>
 </head>
@@ -34,6 +63,7 @@
 				<tr>
 					<th>제목</th>
 					<th>날짜</th>
+					<th></th>
 				</tr>
 			</thead >
 			<tbody id="printList" >
@@ -41,6 +71,5 @@
 		</table>
 	</fieldset>
 	<input type="button" value="글쓰기" id="moveWrite" >
-	
 </body>
 </html>
