@@ -21,7 +21,7 @@ public class TodoController {
 	AllService service;
 	
 	@RequestMapping(value="/moveWrite", method=RequestMethod.GET)
-	public String moveWrite(Model model){ 
+	public String moveWrite(Model model){
 		model.addAttribute("todo_seq",-1);
 		model.addAttribute("check",false);
 		return "write";
