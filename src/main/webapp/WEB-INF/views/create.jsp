@@ -10,7 +10,7 @@
 <script type="text/javascript">
 
 	checkId = false; //전역변수
-	$(function(){ 
+	$(function(){  
 		$("#moveLoginBtn").click(function(){
 			window.location.replace("moveLogin");
 		})
