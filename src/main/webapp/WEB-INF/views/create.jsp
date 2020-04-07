@@ -11,7 +11,7 @@
 
 	checkId = false; //전역변수
 	$(function(){
-		$("#moveLoginBtn").click(function(){
+		$("#moveLoginBtn").click(function(){ 
 			window.location.replace("moveLogin");
 		})
 		
