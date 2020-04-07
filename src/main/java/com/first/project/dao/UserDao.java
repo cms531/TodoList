@@ -38,5 +38,29 @@ public class UserDao {
 		return result;
 	}
 	
+	public int updateUser(UserVo user){
+		int result = 0;
+		UserMapper mapper = session.getMapper(UserMapper.class);
+		try {
+			result = mapper.updateUser(user);
+		} catch (Exception e) {
+			// TODO: handle exception
+			e.printStackTrace();
+			return result;
+		}
+		return result;
+	}
 	
+	public int deleteUser(UserVo user){
+		int result = 0;
+		UserMapper mapper = session.getMapper(UserMapper.class);
+		try {
+			result = mapper.deleteUser(user);
+		} catch (Exception e) {
+			// TODO: handle exception
+			e.printStackTrace();
+			return result;
+		}
+		return result;
+	}
 }

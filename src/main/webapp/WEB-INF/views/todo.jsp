@@ -13,17 +13,27 @@
 			,type : "get"
 			,success : function(result){
 				var str = "";
+				var count = false;
 				for(var i = 0 ; i < result.length; i++){
 					str += "<tr>";
-					str += "<td>" + result[i].title + "</td>";
+					str += "<td><a href='readTodo?todo_seq="+result[i].todo_seq+"&userId="+result[i].userId+" ' >"+result[i].title+"</a></td>";
 					str += "<td>" + result[i].tododate + "</td>";
+					str += "<td>" + result[i].userId + "</td>";
 					if(result[i].userId == '${sessionScope.userId}'){
 						str += "<td><input type='button' class='deleteBtn' value='삭제' attr-delete='"+result[i].todo_seq+ "' ></td>";
+						count = true;
 					}
 					str += "</tr>";
 				}
 				$("#printList").html(str);
+				if(count){
+					$("#th").append("<th>삭제</th>");
+				}
 			}
+		})
+		
+		$("#deleteBtn").click(function(){
+			window.open("moveDeleteUser");
 		})
 		
 		$("#moveWrite").click(function(){
@@ -39,31 +49,35 @@
 					todo_seq : todo_seq
 				}
 				,success : function(result){
-					alert(result);
+					if(result =='success'){
+						location.reload();
+					}else{
+						alert(result);
+					}
 				}
-				
 			})
 		})
-
-		
 	})
-	
-	
-	
 	
 
 </script>
 </head>
 <body>
 	<h2>${sessionScope.userName}님 환영합니다.</h2>
+	<table>
+		<tr>
+			<td><form action="logout" method="get"><input type="submit" value="로그아웃" ></form></td>
+			<td><input type="button" value="회원탈퇴" id="deleteBtn" ></td>
+		</tr>
+	</table>
 	<fieldset>
 	<legend><h3>TODOLIST</h3></legend>
 		<table border="1" bordercolor="blue" >
 			<thead >
-				<tr>
+				<tr id="th">
 					<th>제목</th>
 					<th>날짜</th>
-					<th></th>
+					<th>작성자</th>
 				</tr>
 			</thead >
 			<tbody id="printList" >
@@ -71,5 +85,6 @@
 		</table>
 	</fieldset>
 	<input type="button" value="글쓰기" id="moveWrite" >
+	
 </body>
 </html>

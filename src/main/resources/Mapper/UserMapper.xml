@@ -13,8 +13,15 @@
 		USERTABLE
 	WHERE
 		userid = #{userId}
+	<if test="userPw != null ">
 		and 
 		userpw = #{userPw}
+	</if>
+	<if test="userName != null ">
+		and
+		username = #{userName}
+	</if>
+	
 </select>
 
 <insert id="insertUser" parameterType="User" >
@@ -30,5 +37,21 @@
 
 </insert>
 
+<update id="updateUser" parameterType="User">
+	UPDATE 
+		USERTABLE
+	SET
+		userpw = #{userPw}
+	WHERE
+		userid = #{userId}
+</update>
+
+<delete id="deleteUser" parameterType="User">
+	DELETE
+	FROM
+		USERTABLE
+	WHERE
+		userid = #{userId}
+</delete>
 
 </mapper>

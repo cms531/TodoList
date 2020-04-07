@@ -9,10 +9,10 @@
 	<form action="loginUser" method="post" autocomplete="off">
 		<fieldset>
 			<legend>로그인</legend>
-			<label>아이디 : <input type="text" name="userId" > </label><br>
-			<label>비밀번호 : <input type="text" name="userPw" > </label><br>
+			<label>아이디 : <input type="text" name="userId" maxlength="15" required> </label><br>
+			<label>비밀번호 : <input type="password" name="userPw" maxlength="20" required > </label><br>
 			&nbsp;&nbsp;&nbsp; <input type="submit" value="로그인" >
-			${message}
+			&nbsp;&nbsp;&nbsp; ${message}
 		</fieldset>
 	</form>
 	
@@ -20,8 +20,8 @@
 	<input type="submit" value="회원가입" >
 	</form>
 	
-	<form action="moveSearchAccount" method="get">
-	<input type="submit" value="아이디 찾기" >
+	<form action="moveSearch" method="get">
+	<input type="submit" value="비밀번호 찾기" >
 	</form>
 </body>
 </html>

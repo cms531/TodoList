@@ -40,4 +40,37 @@
   		todo_seq = #{todo_seq}
   </delete>
   
+  <delete id="deleteOneUserAllTodo" parameterType="Todo">
+  	DELETE 
+  	FROM
+ 		TODOTABLE
+ 	WHERE 
+  		userid = #{userId}
+  </delete>
+  
+  <select id="selectOneTodo" parameterType="Todo" resultType="Todo">
+	  SELECT
+	  	todo_seq
+  		,userid
+  		,title
+  		,content
+  		,TO_CHAR(tododate, 'YYYY-MM-DD') AS tododate
+	  FROM
+	  	TODOTABLE
+	  WHERE
+	  	todo_seq = #{todo_seq}	
+  </select>
+  
+  
+  <update id="updateTodo" parameterType="Todo">
+  	UPDATE 
+  		TODOTABLE
+  	SET
+		content = #{content}
+		,title = #{title}  		
+  	WHERE
+  		todo_seq = #{todo_seq}
+  </update>
+  
+  
   </mapper>

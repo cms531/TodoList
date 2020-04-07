@@ -39,4 +39,23 @@ public class AllService {
 		return tDao.deleteTodo(todo);
 	}
 	
+	public TodoVo selectOneTodo(TodoVo todo){
+		return tDao.selectOneTodo(todo);
+	}
+	
+	public int updateTodo(TodoVo todo){
+		return tDao.updateTodo(todo);
+	}
+	
+	public int updateUser(UserVo user){
+		return uDao.updateUser(user);
+	}
+	
+	public int deleteUser(UserVo user){
+		return uDao.deleteUser(user);
+	}
+	
+	public int deleteOneUserAllTodo(TodoVo todo){
+		return tDao.deleteOneUserAllTodo(todo);
+	}
 }

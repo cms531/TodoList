@@ -50,5 +50,39 @@ public class TodoDao {
 		return result;
 	}
 	
+	public TodoVo selectOneTodo(TodoVo todo){
+		TodoVo result = new TodoVo();
+		TodoMapper mapper = session.getMapper(TodoMapper.class);
+		try {
+			result = mapper.selectOneTodo(todo);
+		} catch (Exception e) {
+			e.printStackTrace();
+			return result;
+		}
+		return result;
+	}
 	
+	public int updateTodo(TodoVo todo){
+		int result = 0;
+		TodoMapper mapper = session.getMapper(TodoMapper.class);
+		try {
+			result = mapper.updateTodo(todo);
+		} catch (Exception e) {
+			e.printStackTrace();
+			return result;
+		}
+		return result;
+	}
+	
+	public int deleteOneUserAllTodo(TodoVo todo){
+		int result = 0;
+		TodoMapper mapper = session.getMapper(TodoMapper.class);
+		try {
+			result = mapper.deleteOneUserAllTodo(todo);
+		} catch (Exception e) {
+			e.printStackTrace();
+			return result;
+		}
+		return result;
+	}
 }
