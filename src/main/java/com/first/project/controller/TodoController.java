@@ -51,6 +51,7 @@ public class TodoController {
 	public ArrayList<TodoVo> selectAllTodo(){
 		ArrayList<TodoVo> result = new ArrayList<>();
 		result = service.selectAllTodo();
+		//소팅추가해야함
 		return result;
 	}
 	

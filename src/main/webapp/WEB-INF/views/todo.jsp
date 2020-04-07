@@ -37,7 +37,7 @@
 		})
 		
 		$("#moveWrite").click(function(){
-			window.open("moveWrite");
+			window.location.replace("moveWrite");
 		})
 		
 		$(document).on("click",".deleteBtn",function(){
