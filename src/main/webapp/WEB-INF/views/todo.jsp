@@ -33,7 +33,7 @@
 		})
 		
 		$("#deleteBtn").click(function(){
-			window.open("moveDeleteUser");
+			window.location.replace("moveDeleteUser");
 		})
 		
 		$("#moveWrite").click(function(){

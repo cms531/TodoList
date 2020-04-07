@@ -26,7 +26,7 @@ public class UserController {
 		if(result != null){
 			session.setAttribute("userId", result.getUserId());
 			session.setAttribute("userName", result.getUserName());
-			return "todo";
+			return "redirect:/moveTodo";
 		}else{
 			model.addAttribute("message", "로그인실패.");
 			return "login";
